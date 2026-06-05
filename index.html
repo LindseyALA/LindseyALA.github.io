@@ -771,6 +771,86 @@
       background: linear-gradient(90deg, transparent, var(--border), transparent);
     }
 
+    /* ── TIMELINE ── */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent1), var(--accent2), transparent);
+    }
+
+    .tl-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding-left: 2rem;
+    }
+
+    .tl-dot {
+      position: absolute;
+      left: -2.45rem;
+      top: 0.35rem;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--accent1);
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 10px rgba(124,58,237,0.6);
+    }
+    .tl-dot-gold {
+      background: var(--accent3);
+      box-shadow: 0 0 10px rgba(245,158,11,0.6);
+    }
+
+    .tl-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .tl-card:hover { border-color: var(--accent1); transform: translateX(4px); }
+
+    .tl-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .tl-org {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--accent2);
+    }
+
+    .tl-date {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .tl-role {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: var(--text);
+    }
+
+    .tl-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .tl-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
     /* ── GLOW PULSE KEYFRAME ── */
     @keyframes glow-pulse {
       0%,100% { box-shadow: 0 0 20px rgba(124,58,237,0.15); }
@@ -803,6 +883,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="#signup">Stay in Touch</a></li>
     </ul>
@@ -838,7 +919,7 @@
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary">View My Work</a>
         <a href="#contact" class="btn btn-outline">Get In Touch</a>
-        <a href="YOUR_RESUME.pdf" class="btn btn-outline" download>Download Resume</a>
+        <a href="Lindsey_English_Jr_Resume.docx" class="btn btn-outline" download>Download Resume</a>
       </div>
     </div>
 
@@ -963,13 +1044,13 @@
       <div class="about-right">
         <div class="about-text reveal reveal-delay-2">
           <p>
-            I'm <strong>Lindsey R. English Jr.</strong> — IT technician, cybersecurity student, and hands-on builder of networks, servers, and secure systems.
+            I'm <strong>Lindsey R. English Jr.</strong> — U.S. Army veteran, IT technician, cybersecurity student, and hands-on builder of networks, servers, and secure systems.
           </p>
           <p>
-            I specialize in <strong>troubleshooting, virtualization, Windows Server, and network security</strong>, backed by real-world experience supporting IT operations at <strong>Tacoma Community College</strong> as a Work Study IT Support Tech.
+            After a decorated military career and <strong>9+ years in security leadership</strong> — including supervising multi-site operations and serving as a Western Washington Recruiter — I pivoted fully into IT, where I now support operations at <strong>Tacoma Community College</strong> as a Work Study IT Support Tech.
           </p>
           <p>
-            I'm completing my <strong>Associate's in Networking &amp; Cybersecurity in June 2026</strong>, then moving into a <strong>BAS in Advanced Networking &amp; Data Security</strong> in the fall — while expanding my homelab with enterprise-grade gear to push my skills even further.
+            I'm completing my <strong>Associate's in Networking &amp; Cybersecurity (3.9 GPA)</strong> in June 2026, then moving into a <strong>BAS in Advanced Networking &amp; Data Security</strong> in the fall. I'm a member of <strong>Phi Theta Kappa Honor Society</strong> and the TCC IT Club, and I hold a <strong>Cisco Hardware Basics</strong> certification and a <strong>TCC Help Desk Certificate</strong>.
           </p>
           <p>
             I'm driven by curiosity, problem-solving, and the challenge of making technology work smoothly for the people who rely on it.
@@ -978,20 +1059,20 @@
         </div>
         <div class="about-stats reveal reveal-delay-3">
           <div class="stat-card">
-            <div class="stat-number" data-target="2">0</div>
-            <div class="stat-label">Years in IT</div>
+            <div class="stat-number">3.9</div>
+            <div class="stat-label">GPA at TCC</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number" data-target="10">0</div>
-            <div class="stat-label">Projects Built</div>
+            <div class="stat-number">9+</div>
+            <div class="stat-label">Years Leadership</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">🎖️</div>
+            <div class="stat-label">Army Veteran</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">BAS</div>
             <div class="stat-label">Degree in Progress</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">∞</div>
-            <div class="stat-label">Coffee Consumed</div>
           </div>
         </div>
       </div>
@@ -1073,6 +1154,7 @@
             <span class="skill-tag">Nmap</span>
             <span class="skill-tag">Wireshark</span>
             <span class="skill-tag">Patch Mgmt</span>
+            <span class="skill-tag">Access Control</span>
           </div>
         </div>
         <div class="skill-cat reveal reveal-delay-3">
@@ -1086,7 +1168,35 @@
             <span class="skill-tag">GitHub</span>
             <span class="skill-tag">Grafana</span>
             <span class="skill-tag">Splunk</span>
-            <span class="skill-tag">JIRA</span>
+            <span class="skill-tag">Help Desk Systems</span>
+          </div>
+        </div>
+        <div class="skill-cat reveal reveal-delay-1">
+          <div class="skill-cat-header">
+            <img class="skill-cat-img" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cisco/cisco-original.svg" alt="Certs" onerror="this.style.display='none'" />
+            <div class="skill-cat-name">Certifications</div>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Cisco Hardware Basics</span>
+            <span class="skill-tag">TCC Help Desk Cert</span>
+            <span class="skill-tag">Word Yellow Belt</span>
+            <span class="skill-tag">Word White Belt</span>
+            <span class="skill-tag">Phi Theta Kappa</span>
+            <span class="skill-tag">Dean's List</span>
+          </div>
+        </div>
+        <div class="skill-cat reveal reveal-delay-2">
+          <div class="skill-cat-header">
+            <span style="font-size:1.75rem;">🎖️</span>
+            <div class="skill-cat-name">Leadership &amp; Operations</div>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Team Supervision</span>
+            <span class="skill-tag">Recruiting</span>
+            <span class="skill-tag">Incident Response</span>
+            <span class="skill-tag">Shift Management</span>
+            <span class="skill-tag">Documentation</span>
+            <span class="skill-tag">Military Ops</span>
           </div>
         </div>
       </div>
@@ -1132,10 +1242,94 @@
 
   <div class="section-divider"></div>
 
+  <!-- CAREER JOURNEY -->
+  <section id="experience" style="background: var(--surface); max-width:100%; padding:6rem 0;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 2.5rem;">
+      <p class="section-label reveal">04 / Experience</p>
+      <h2 class="section-title reveal reveal-delay-1">Career <em>Journey</em></h2>
+      <div class="timeline">
+
+        <div class="tl-item reveal reveal-delay-1">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tl-org">Tacoma Community College</span>
+              <span class="tl-date">2024 – Present</span>
+            </div>
+            <div class="tl-role">IT Support Tech (Work Study)</div>
+            <p class="tl-desc">Providing hands-on IT support for faculty, staff, and students. Troubleshooting hardware, software, and network issues across campus systems while building real-world experience in help desk operations, Windows Server, and Active Directory.</p>
+            <div class="tl-tags">
+              <span class="skill-tag">Help Desk</span>
+              <span class="skill-tag">Windows Server</span>
+              <span class="skill-tag">Active Directory</span>
+              <span class="skill-tag">Networking</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item reveal reveal-delay-2">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tl-org">Phoenix Protective Corp</span>
+              <span class="tl-date">2015 – 2024 · 9 yrs 7 mos</span>
+            </div>
+            <div class="tl-role">Patrol Supervisor / Recruiter / Armed Transport</div>
+            <p class="tl-desc">Progressed through multiple leadership roles overseeing daily operations across multi-site security posts. Coordinated schedules, conducted site inspections, led incident response, and served as Western Washington Recruiter — sourcing, screening, and onboarding personnel across the region.</p>
+            <div class="tl-tags">
+              <span class="skill-tag">Leadership</span>
+              <span class="skill-tag">Operations Mgmt</span>
+              <span class="skill-tag">Incident Response</span>
+              <span class="skill-tag">Recruiting</span>
+              <span class="skill-tag">Documentation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item reveal reveal-delay-3">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tl-org">Xerox</span>
+              <span class="tl-date">2014 – 2015</span>
+            </div>
+            <div class="tl-role">Customer Service Representative</div>
+            <p class="tl-desc">Handled inbound inquiries and complaints, resolved customer issues, and provided training and guidance to lower-level staff. Developed strong communication and problem-resolution skills in a fast-paced service environment.</p>
+            <div class="tl-tags">
+              <span class="skill-tag">Customer Service</span>
+              <span class="skill-tag">Training</span>
+              <span class="skill-tag">Issue Resolution</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item reveal reveal-delay-1">
+          <div class="tl-dot tl-dot-gold"></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tl-org">U.S. Army · Joint Base Lewis-McChord</span>
+              <span class="tl-date">2010 – 2013</span>
+            </div>
+            <div class="tl-role">Cannon Crewmember (13B) — Honorably Discharged</div>
+            <p class="tl-desc">Operated and maintained M777 and M109A6 howitzers in high-tempo environments. Trained in artillery fire direction, ammunition handling, and crew coordination. Awarded the Army Commendation Medal, Army Achievement Medal, and Non-Article 5 NATO Medal (ISAF).</p>
+            <div class="tl-tags">
+              <span class="skill-tag">🎖️ Army Commendation Medal</span>
+              <span class="skill-tag">🏅 NATO Medal (ISAF)</span>
+              <span class="skill-tag">🏅 Army Achievement Medal</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
   <!-- CONTACT -->
   <section id="contact" style="padding:0; max-width:100%;">
     <div class="inner">
-      <p class="section-label reveal">04 / Contact</p>
+      <p class="section-label reveal">05 / Contact</p>
       <h2 class="section-title reveal reveal-delay-1">Get In <em>Touch</em></h2>
       <div class="contact-grid">
         <div class="contact-info reveal reveal-delay-2">
@@ -1191,7 +1385,7 @@
 
   <!-- SIGN UP -->
   <section id="signup">
-    <p class="section-label reveal">05 / Stay in Touch</p>
+    <p class="section-label reveal">06 / Stay in Touch</p>
     <h2 class="section-title reveal reveal-delay-1">Join My <em>Network</em></h2>
     <p class="reveal reveal-delay-2">Sign up to get updates when I publish new projects, write-ups, or share what I'm learning in IT and cybersecurity. No spam — ever.</p>
     <div class="signup-box reveal reveal-delay-3">
