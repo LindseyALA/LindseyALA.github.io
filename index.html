@@ -1381,18 +1381,18 @@
             </a>
           </div>
         </div>
-        <form onsubmit="handleContact(event)" class="reveal reveal-delay-3">
+        <form onsubmit="handleContact(event)" action="https://formspree.io/f/mnjkdojw" method="POST" class="reveal reveal-delay-3">
           <div class="form-group">
             <label for="c-name">Name</label>
-            <input type="text" id="c-name" placeholder="Jane Smith" required />
+            <input type="text" id="c-name" name="name" placeholder="Jane Smith" required />
           </div>
           <div class="form-group">
             <label for="c-email">Email</label>
-            <input type="email" id="c-email" placeholder="jane@example.com" required />
+            <input type="email" id="c-email" name="email" placeholder="jane@example.com" required />
           </div>
           <div class="form-group">
             <label for="c-msg">Message</label>
-            <textarea id="c-msg" placeholder="Tell me what you're working on..." required></textarea>
+            <textarea id="c-msg" name="message" placeholder="Tell me what you're working on..." required></textarea>
           </div>
           <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Message</button>
         </form>
@@ -1664,16 +1664,35 @@
     /* ── CONTACT FORM ── */
     function handleContact(e) {
       e.preventDefault();
-      const btn = e.target.querySelector('button[type="submit"]');
-      btn.textContent = '✓ Message Sent!';
-      btn.style.background = 'linear-gradient(135deg, #059669, #047857)';
+      const form = e.target;
+      const btn = form.querySelector('button[type="submit"]');
+      const originalText = btn.textContent;
+      btn.textContent = 'Sending...';
       btn.disabled = true;
-      e.target.reset();
-      setTimeout(() => {
-        btn.textContent = 'Send Message';
-        btn.style.background = '';
-        btn.disabled = false;
-      }, 3000);
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          btn.textContent = '✓ Message Sent!';
+          btn.style.background = 'linear-gradient(135deg, #059669, #047857)';
+          form.reset();
+        } else {
+          btn.textContent = 'Something went wrong — try again';
+          btn.style.background = 'linear-gradient(135deg, #dc2626, #991b1b)';
+        }
+      }).catch(() => {
+        btn.textContent = 'Something went wrong — try again';
+        btn.style.background = 'linear-gradient(135deg, #dc2626, #991b1b)';
+      }).finally(() => {
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = '';
+          btn.disabled = false;
+        }, 3000);
+      });
     }
 
     /* ── SIGNUP FORM ── */
