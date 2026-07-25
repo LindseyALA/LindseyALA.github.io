@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Lab | Lindsey R. English Jr.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #13131a;
+      --card: #1c1c28;
+      --accent1: #7c3aed;
+      --accent2: #06b6d4;
+      --accent3: #f59e0b;
+      --green: #10b981;
+      --text: #f0f0f5;
+      --muted: #8888a8;
+      --border: #2a2a3a;
+      --page-accent: #10b981;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Space Grotesk', sans-serif; line-height: 1.7; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 2.5rem;
+      background: rgba(10, 10, 15, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Space Mono', monospace; font-size: 1.2rem; font-weight: 700;
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 600;
+      letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-social { display: flex; gap: 1rem; }
+    .nav-social a {
+      display: flex; align-items: center; gap: 0.4rem; color: var(--muted);
+      text-decoration: none; font-size: 0.85rem; font-weight: 600;
+      padding: 0.4rem 0.8rem; border: 1px solid var(--border); border-radius: 6px; transition: 0.2s;
+    }
+    .nav-social a:hover { color: var(--text); border-color: var(--accent1); background: rgba(124,58,237,0.1); }
+
+    .page-hero { max-width: 900px; margin: 0 auto; padding: 9rem 2.5rem 2rem; }
+    .page-label {
+      font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--page-accent);
+      letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.75rem;
+    }
+    .page-title { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .page-title em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--green), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .page-subtitle { color: var(--muted); font-size: 1.1rem; max-width: 700px; }
+
+    .page-content { max-width: 900px; margin: 0 auto; padding: 1rem 2.5rem 4rem; }
+    .page-content p { color: var(--muted); margin-bottom: 1.25rem; font-size: 1.02rem; }
+    .page-content strong { color: var(--text); }
+    .page-content h2 { font-size: 1.4rem; margin: 2.5rem 0 1rem; color: var(--text); }
+
+    .tag-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0 2.5rem; }
+    .skill-tag {
+      font-size: 0.78rem; font-family: 'Space Mono', monospace; padding: 0.35rem 0.75rem;
+      border-radius: 6px; background: rgba(16,185,129,0.12); color: var(--green);
+      border: 1px solid rgba(16,185,129,0.25); transition: 0.2s;
+    }
+    .skill-tag:hover { background: rgba(16,185,129,0.22); border-color: rgba(16,185,129,0.4); }
+
+    .cta-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.75rem;
+      border-radius: 8px; font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem;
+      font-weight: 600; text-decoration: none; cursor: pointer; transition: 0.2s; border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent1), #5b21b6); color: #fff;
+      box-shadow: 0 0 30px rgba(124,58,237,0.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(124,58,237,0.55); }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-outline:hover { border-color: var(--accent2); background: rgba(6,182,212,0.08); }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: center;
+      color: var(--muted); font-size: 0.85rem;
+    }
+    footer a { color: var(--accent2); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 700px) { .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">lindsey.dev</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-social">
+      <a href="https://github.com/LindseyALA" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/lindseyenglishjr" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <p class="page-label">Focus Area</p>
+    <h1 class="page-title">Home <em>Lab</em></h1>
+    <p class="page-subtitle">My own infrastructure sandbox — where I test, break, and rebuild things before I'd ever touch them in production.</p>
+  </section>
+
+  <section class="page-content">
+    <p>
+      My home lab is a fully segmented network environment I built and maintain outside of coursework, as a place to apply what I'm learning in real conditions instead of just theory. At its core is a <strong>pfSense firewall</strong> handling routing and traffic filtering, with multiple <strong>VLANs</strong> separating trusted devices, guest traffic, and lab/test systems so nothing bleeds into anything it shouldn't.
+    </p>
+    <p>
+      Virtualization runs on a <strong>Proxmox cluster</strong>, which lets me spin up and tear down servers, test configurations, and simulate scenarios I wouldn't get to touch in a live production environment as a student. I also run <strong>centralized logging</strong> across the lab, so I can see what every segment and VM is actually doing — the same visibility principle that matters in any real SOC or NOC setup.
+    </p>
+    <h2>System Health Dashboard</h2>
+    <p>
+      One project built directly on top of the lab is a <strong>System Health Dashboard</strong> — a <strong>Python + Grafana</strong> setup pulling real-time metrics from Linux servers and network devices, with automated alerting and log aggregation. It's the monitoring layer that turns the lab from "a bunch of VMs" into something I can actually observe and respond to.
+    </p>
+    <h2>What's Next</h2>
+    <p>
+      The lab isn't static — I'm expanding it with <strong>enterprise-grade gear through 2026</strong> to push closer to what a real small-to-mid-size network looks like, and to keep giving myself harder problems to solve as my coursework in networking and cybersecurity advances.
+    </p>
+    <div class="tag-row">
+      <span class="skill-tag">pfSense</span>
+      <span class="skill-tag">VLANs</span>
+      <span class="skill-tag">Proxmox</span>
+      <span class="skill-tag">Centralized Logging</span>
+      <span class="skill-tag">Grafana</span>
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">Linux</span>
+    </div>
+    <div class="cta-row">
+      <a href="https://github.com/LindseyALA" class="btn btn-primary" target="_blank" rel="noopener">View on GitHub</a>
+      <a href="index.html" class="btn btn-outline">← Back to Portfolio</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Built by Lindsey R. English Jr. · <a href="https://github.com/LindseyALA" target="_blank" rel="noopener">GitHub</a> · <a href="https://linkedin.com/in/lindseyenglishjr" target="_blank" rel="noopener">LinkedIn</a></p>
+    <p style="margin-top:0.5rem; font-size:0.75rem; opacity:0.5;">© 2026 Lindsey R. English Jr. All rights reserved.</p>
+  </footer>
+
+  <script data-goatcounter="https://lindseyala.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
