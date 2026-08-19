@@ -1456,7 +1456,7 @@
     var t = setInterval(function() {
         if (window.goatcounter && window.goatcounter.visit_count) {
             clearInterval(t)
-            window.goatcounter.visit_count({append: '#visitor-count', path: 'TOTAL', no_branding: true, style: 'div{border:none;background:none;color:inherit;} #gcvc-for{display:none;}'})
+            window.goatcounter.visit_count({append: '#visitor-count', path: 'TOTAL', no_branding: true, style: 'div{border:none!important;background:transparent!important;color:var(--muted)!important;padding:0!important;box-shadow:none!important;} #gcvc-for{display:none!important;} #gcvc-views{font-family:"Space Mono",monospace!important;}'})
         }
     }, 100)
 </script>
