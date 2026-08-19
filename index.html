@@ -1451,8 +1451,15 @@
   <footer>
     <p>Built by Lindsey R. English Jr. · <a href="https://github.com/LindseyALA" target="_blank" rel="noopener">GitHub</a> · <a href="https://linkedin.com/in/lindseyenglishjr" target="_blank" rel="noopener">LinkedIn</a></p>
     <p style="margin-top:0.5rem; font-size:0.75rem; opacity:0.5;">© 2026 Lindsey R. English Jr. All rights reserved.</p>
-  </footer>
-
+  </footer><div id="visitor-count" style="text-align:center; margin-top:1rem; opacity:0.6; font-size:0.8rem;"></div>
+<script>
+    var t = setInterval(function() {
+        if (window.goatcounter && window.goatcounter.visit_count) {
+            clearInterval(t)
+            window.goatcounter.visit_count({append: '#visitor-count', path: 'TOTAL', no_branding: true, style: 'div{border:none;background:none;color:inherit;} #gcvc-for{display:none;}'})
+        }
+    }, 100)
+</script>
   <script>
     /* ── PARTICLE NETWORK ── */
     (function() {
